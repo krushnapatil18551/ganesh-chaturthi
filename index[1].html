@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ganesh Chaturthi | गणपती बाप्पा मोरया</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --saffron: #f47b20;
+  --deep-orange: #b83b13;
+  --cream: #fff6e6;
+  --gold: #ffc857;
+  --brown: #4b2118;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--brown);
+  background: var(--cream);
+  line-height: 1.6;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 8%;
+  background: rgba(255, 246, 230, 0.95);
+  box-shadow: 0 3px 20px rgba(75, 33, 24, 0.08);
+}
+
+.logo {
+  color: var(--deep-orange);
+  text-decoration: none;
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.logo span {
+  color: var(--saffron);
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  color: var(--brown);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--saffron);
+}
+
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 88vh;
+  padding: 70px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(255, 200, 87, 0.4), transparent 25%),
+    linear-gradient(135deg, #fff5dd, #ffd7a0);
+}
+
+.hero-content {
+  max-width: 650px;
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  color: var(--deep-orange);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+h1, h2, h3 {
+  font-family: "Baloo 2", cursive;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(3.3rem, 7vw, 6.5rem);
+  color: var(--deep-orange);
+  margin-bottom: 8px;
+}
+
+.hero h2 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  color: var(--brown);
+}
+
+.hero h2 span {
+  color: var(--saffron);
+}
+
+.hero-text {
+  max-width: 550px;
+  margin: 24px 0;
+  font-size: 1.05rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 24px;
+  border-radius: 40px;
+  border: 2px solid transparent;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(184, 59, 19, 0.2);
+}
+
+.primary {
+  background: var(--deep-orange);
+  color: var(--white);
+}
+
+.secondary {
+  color: var(--deep-orange);
+  border-color: var(--deep-orange);
+  background: transparent;
+}
+
+.ganesha-art {
+  width: 360px;
+  height: 360px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.halo {
+  position: absolute;
+  width: 290px;
+  height: 290px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 20px rgba(255, 200, 87, 0.25), 0 0 80px rgba(244, 123, 32, 0.3);
+}
+
+.om-symbol {
+  position: absolute;
+  top: 12px;
+  font-size: 4rem;
+  color: var(--deep-orange);
+  font-weight: 800;
+  z-index: 2;
+}
+
+.ganesha-face {
+  position: relative;
+  z-index: 1;
+  font-size: 12rem;
+  filter: drop-shadow(0 12px 4px rgba(75, 33, 24, 0.18));
+}
+
+.modak, .diya {
+  position: absolute;
+  z-index: 3;
+  font-size: 2.6rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.modak {
+  right: 15px;
+  bottom: 55px;
+}
+
+.diya-one {
+  left: 15px;
+  bottom: 60px;
+}
+
+.diya-two {
+  right: 20px;
+  top: 70px;
+  animation-delay: 1s;
+}
+
+.floating {
+  position: absolute;
+  color: var(--saffron);
+  font-size: 4rem;
+  opacity: 0.45;
+}
+
+.flower-one {
+  left: 4%;
+  top: 20%;
+}
+
+.flower-two {
+  right: 4%;
+  bottom: 12%;
+}
+
+.section {
+  padding: 90px 8%;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 45px;
+}
+
+.section-heading h2 {
+  font-size: clamp(2.3rem, 4vw, 3.6rem);
+  color: var(--deep-orange);
+  margin-bottom: 12px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.info-card {
+  padding: 35px 28px;
+  text-align: center;
+  background: var(--white);
+  border-radius: 24px;
+  box-shadow: 0 8px 30px rgba(75, 33, 24, 0.08);
+  transition: transform 0.3s;
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.info-card h3 {
+  font-size: 1.7rem;
+  color: var(--deep-orange);
+  margin-bottom: 10px;
+}
+
+.quote-section {
+  padding: 90px 8%;
+  background: linear-gradient(135deg, #b83b13, #f47b20);
+  color: var(--white);
+}
+
+.quote-box {
+  max-width: 850px;
+  text-align: center;
+  margin: auto;
+}
+
+.quote-box .eyebrow {
+  color: var(--gold);
+}
+
+.quote-box h2 {
+  font-size: clamp(2.3rem, 5vw, 4.5rem);
+  margin-bottom: 20px;
+}
+
+.quote-box p {
+  margin-bottom: 25px;
+}
+
+.blessing {
+  min-height: 30px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.wishes-section {
+  max-width: 900px;
+  margin: auto;
+}
+
+.wish-form {
+  display: grid;
+  gap: 16px;
+  max-width: 600px;
+  margin: auto;
+}
+
+input, textarea {
+  width: 100%;
+  border: 2px solid #f2c79c;
+  border-radius: 14px;
+  padding: 15px;
+  font: inherit;
+  color: var(--brown);
+  background: var(--white);
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--saffron);
+}
+
+.wish-result {
+  max-width: 600px;
+  margin: 28px auto 0;
+  padding: 28px;
+  border: 2px dashed var(--saffron);
+  border-radius: 20px;
+  background: #fff0cc;
+  text-align: center;
+}
+
+.wish-result h3 {
+  color: var(--deep-orange);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+footer {
+  padding: 25px 8%;
+  text-align: center;
+  background: var(--brown);
+  color: var(--cream);
+}
+
+footer p {
+  margin: 4px 0;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@media (max-width: 850px) {
+  .hero {
+    text-align: center;
+    flex-direction: column;
+    padding-top: 55px;
+  }
+
+  .hero-text {
+    margin: 20px auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .ganesha-art {
+    width: 300px;
+    height: 300px;
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 650px) {
+  .navbar {
+    padding: 15px 6%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+    background: var(--cream);
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .section, .quote-section {
+    padding: 65px 6%;
+  }
+
+  h1 {
+    font-size: 3.4rem;
+  }
+}
+
+</style>
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="#home">ॐ <span>Bappa</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    <nav id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#celebrate">Celebrate</a>
+      <a href="#wishes">Wishes</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">श्री गणेशाय नमः</p>
+        <h1>Ganesh Chaturthi</h1>
+        <h2>गणपती बाप्पा <span>मोरया!</span></h2>
+        <p class="hero-text">
+          Welcome Lord Ganesha with devotion, happiness and positive energy.
+          May Bappa remove every obstacle and bless your home with peace.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#wishes">Send Wishes ✨</a>
+          <a class="btn secondary" href="#about">Explore More</a>
+        </div>
+      </div>
+      <div class="ganesha-art" aria-label="Decorative Lord Ganesha illustration">
+        <div class="halo"></div>
+        <div class="om-symbol">ॐ</div>
+        <div class="ganesha-face">🐘</div>
+        <div class="modak">🍬</div>
+        <div class="diya diya-one">🪔</div>
+        <div class="diya diya-two">🪔</div>
+      </div>
+      <div class="floating flower flower-one">✿</div>
+      <div class="floating flower flower-two">✾</div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">The Festival of Joy</p>
+        <h2>About Ganesh Chaturthi</h2>
+        <p>एकदंताय विद्महे वक्रतुण्डाय धीमहि।</p>
+      </div>
+      <div class="cards">
+        <article class="info-card">
+          <div class="card-icon">🙏</div>
+          <h3>Devotion</h3>
+          <p>Offer prayers with a pure heart and welcome Bappa into your home.</p>
+        </article>
+        <article class="info-card">
+          <div class="card-icon">🌺</div>
+          <h3>Celebration</h3>
+          <p>Celebrate with decorations, aarti, music, family and community.</p>
+        </article>
+        <article class="info-card">
+          <div class="card-icon">🌱</div>
+          <h3>Eco-Friendly</h3>
+          <p>Choose natural decorations and eco-friendly idols to care for nature.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="quote-section" id="celebrate">
+      <div class="quote-box">
+        <p class="eyebrow">Bappa's Blessings</p>
+        <h2>Where there is faith, there is hope.</h2>
+        <p>May Lord Ganesha fill your life with wisdom, success, good health and happiness.</p>
+        <button class="btn primary" id="blessingBtn">Get a Blessing 💛</button>
+        <p class="blessing" id="blessingText"></p>
+      </div>
+    </section>
+
+    <section class="section wishes-section" id="wishes">
+      <div class="section-heading">
+        <p class="eyebrow">Spread Happiness</p>
+        <h2>Send Your Wish to Bappa</h2>
+        <p>Write your name and share a heartfelt festive message.</p>
+      </div>
+      <form id="wishForm" class="wish-form">
+        <input type="text" id="name" placeholder="Your name" required>
+        <textarea id="message" rows="4" placeholder="Write your Ganesh Chaturthi wish..." required></textarea>
+        <button class="btn primary" type="submit">Create Wish Card 🎉</button>
+      </form>
+      <div class="wish-result" id="wishResult" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with devotion ❤️ | गणपती बाप्पा मोरया!</p>
+    <p id="year"></p>
+  </footer>
+
+  <script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const blessingBtn = document.getElementById("blessingBtn");
+const blessingText = document.getElementById("blessingText");
+const wishForm = document.getElementById("wishForm");
+const wishResult = document.getElementById("wishResult");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+document.querySelectorAll("nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
+});
+
+const blessings = [
+  "May Bappa bless you with happiness, peace and success! 🙏",
+  "May every obstacle disappear from your path. Ganpati Bappa Morya! 🌺",
+  "May your home always be filled with love, health and prosperity. ✨",
+  "Wishing you wisdom, courage and endless positive energy. 🐘"
+];
+
+blessingBtn.addEventListener("click", () => {
+  const randomIndex = Math.floor(Math.random() * blessings.length);
+  blessingText.textContent = blessings[randomIndex];
+});
+
+wishForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  wishResult.hidden = false;
+  wishResult.innerHTML = `
+    <h3>गणपती बाप्पा मोरया! 🙏</h3>
+    <p><strong>${escapeHTML(name)}</strong> wishes:</p>
+    <p>${escapeHTML(message)}</p>
+    <p>May Bappa bless you and your family! 🌼</p>
+  `;
+
+  wishResult.scrollIntoView({ behavior: "smooth", block: "center" });
+  wishForm.reset();
+});
+
+function escapeHTML(text) {
+  return text.replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  }[character]));
+}
+
+document.getElementById("year").textContent =
+  `© ${new Date().getFullYear()} Bappa Celebration`;
+
+</script>
+</body>
+</html>
